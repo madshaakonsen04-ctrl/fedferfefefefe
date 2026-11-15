@@ -1,0 +1,81 @@
+/*
+  EzzClutch Ultimate Neon Edition
+  GPV Classic Skin / Xbox One
+  Visual-only styling: preserves Gamepad Viewer's original controller,
+  button positions, stick movement and live input states.
+*/
+
+/* Controller silhouette: deeper contrast and layered purple neon */
+.controller.edit.xbox {
+  position: relative;
+  filter:
+    saturate(1.42)
+    contrast(1.10)
+    drop-shadow(0 0 5px rgba(205, 125, 255, .92))
+    drop-shadow(0 0 14px rgba(145, 35, 255, .82))
+    drop-shadow(0 0 30px rgba(83, 0, 190, .58));
+}
+
+/* Keep original Xbox button colors; add a consistent violet rim light */
+.edit .abxy,
+.edit .dpad,
+.edit .stick,
+.edit .bumper,
+.edit .trigger,
+.edit .back,
+.edit .start {
+  filter:
+    drop-shadow(0 0 3px rgba(177, 83, 255, .48))
+    drop-shadow(0 0 7px rgba(120, 30, 220, .24));
+  transition: filter .12s ease, brightness .12s ease;
+}
+
+/* Face buttons, bumpers, menu buttons and triggers while pressed */
+.edit .button.pressed,
+.edit .bumper.pressed,
+.edit .back.pressed,
+.edit .start.pressed,
+.edit .trigger.pressed {
+  filter:
+    brightness(1.72)
+    saturate(1.65)
+    drop-shadow(0 0 6px rgba(245, 220, 255, 1))
+    drop-shadow(0 0 14px rgba(190, 95, 255, 1))
+    drop-shadow(0 0 23px rgba(125, 25, 255, .88));
+}
+
+/* Thumbsticks react independently to live movement/press state */
+.edit .stick.pressed {
+  filter:
+    brightness(1.58)
+    saturate(1.45)
+    drop-shadow(0 0 7px rgba(238, 205, 255, 1))
+    drop-shadow(0 0 17px rgba(165, 70, 255, .98))
+    drop-shadow(0 0 26px rgba(105, 15, 220, .75));
+}
+
+/* Subtle inset edge light; pointer-events remain disabled */
+.controller.edit.xbox:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 18%;
+  box-shadow:
+    inset 0 0 8px rgba(220, 160, 255, .22),
+    inset 0 0 22px rgba(130, 25, 220, .14),
+    0 0 12px rgba(185, 85, 255, .30);
+}
+
+/* Reduced motion preference: remove transitions without affecting input */
+@media (prefers-reduced-motion: reduce) {
+  .edit .abxy,
+  .edit .dpad,
+  .edit .stick,
+  .edit .bumper,
+  .edit .trigger,
+  .edit .back,
+  .edit .start {
+    transition: none;
+  }
+}
