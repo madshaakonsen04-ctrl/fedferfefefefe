@@ -1,0 +1,55 @@
+/*
+  EzzClutch Ultimate - safe edit skin for GPV Classic Skin / Xbox One
+  Keeps Gamepad Viewer's original controller markup, positions and live inputs.
+  This file only changes visual effects; it does not replace buttons or sticks.
+*/
+
+/* Purple-black neon treatment and ambient aura */
+.controller.edit.xbox {
+  filter:
+    saturate(1.35)
+    contrast(1.08)
+    drop-shadow(0 0 5px rgba(177, 70, 255, .85))
+    drop-shadow(0 0 13px rgba(132, 20, 255, .72))
+    drop-shadow(0 0 28px rgba(89, 0, 190, .48));
+}
+
+/* Keep the original face-button colors, but add a violet halo */
+.edit .abxy,
+.edit .dpad,
+.edit .stick {
+  filter: drop-shadow(0 0 4px rgba(170, 65, 255, .55));
+}
+
+/* Live response when a face button, shoulder, menu button or trigger is pressed */
+.edit .button.pressed,
+.edit .bumper.pressed,
+.edit .back.pressed,
+.edit .start.pressed,
+.edit .trigger.pressed {
+  filter:
+    brightness(1.65)
+    saturate(1.55)
+    drop-shadow(0 0 6px rgba(225, 170, 255, .98))
+    drop-shadow(0 0 14px rgba(145, 35, 255, .95));
+}
+
+/* Live response for both thumbsticks */
+.edit .stick.pressed {
+  filter:
+    brightness(1.45)
+    drop-shadow(0 0 7px rgba(215, 155, 255, .95))
+    drop-shadow(0 0 16px rgba(137, 25, 255, .9));
+}
+
+/* A subtle purple edge on the controller's existing artwork */
+.controller.edit.xbox:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 18%;
+  box-shadow:
+    inset 0 0 10px rgba(170, 60, 255, .18),
+    0 0 10px rgba(170, 60, 255, .18);
+}
